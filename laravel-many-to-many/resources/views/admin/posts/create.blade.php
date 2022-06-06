@@ -2,8 +2,13 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 ">
+                <div class="allPosts d-flex justify-content-between align-items-center">
+                    <h1>Nuovo post</h1>
+                    <a href="{{ route('admin.posts.index') }}" class="btn btn-info"> Torna ai posts</a>
+                </div>
+
                 {{-- Titolo card --}}
                 <div class="card">
                     <div class="card-header">Scrivi un nuovo post</div>
@@ -30,11 +35,11 @@
                             {{-- Categoria --}}
                             <div class="form-group">
                                 <label>Categoria:</label>
-                                <select name="category_id">
+                                <select class="border-1" name="category_id"
+                                    class="@error('category_id') is-invalid @enderror">
                                     <option value="">-- Scegli Categoria --</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ $category->id == old('$category_id') ? 'selected' : '' }} selected>
+                                        <option value="{{ $category->id }}">
                                             {{ $category->name }}
                                         </option>
                                     @endforeach
@@ -68,9 +73,6 @@
                         </form>
                     </div>
                 </div>
-                {{-- link per tornare indietro --}}
-                <a href="{{ route('admin.posts.index') }}" class="btn btn-primary"> Indietro</a>
-                {{-- / link per tornare indietro --}}
             </div>
         </div>
     </div>
