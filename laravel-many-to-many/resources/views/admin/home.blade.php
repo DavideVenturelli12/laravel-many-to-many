@@ -14,13 +14,10 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-                <div class="card">
-
-                    <div class="card-body justify-content-center">
-                        <a href="{{ route('admin.posts.index') }}">Continua</a>
+                        <div class="allPosts d-flex justify-content-between align-items-center">
+                            {{ __('Hai eseguito l\'accesso!') }}
+                            <a href="{{ route('admin.posts.index') }}" class="btn btn-info">Continua</a>
+                        </div>
                     </div>
                 </div>
             </div>
